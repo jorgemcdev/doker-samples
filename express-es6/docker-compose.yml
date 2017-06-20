@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+  app:
+    mem_limit: 300m
+    memswap_limit: 1g
+    build: ./app
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./app:/home/node_app/app
+      - /home/node_app/app/node_modules
+    ports:
+     - 3000:3000
+    command: npm run dev
